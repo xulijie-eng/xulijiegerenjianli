@@ -1,0 +1,1596 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>徐莉婕 · 个人简历</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- AOS scroll animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6c5ce7;
+      --primary-dark: #5a4bd1;
+      --secondary: #fd79a8;
+      --accent: #00cec9;
+      --dark: #2d3436;
+      --light: #f8f9fa;
+      --gray: #636e72;
+      --gradient-1: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+      --gradient-2: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+      --gradient-hero: linear-gradient(135deg, #2d3436 0%, #636e72 50%, #2d3436 100%);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+      --shadow-glow: 0 0 40px rgba(108,92,231,0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', 'Inter', sans-serif;
+      overflow-x: hidden;
+      background: var(--light);
+      color: var(--dark);
+    }
+    a { text-decoration: none; transition: var(--transition); }
+    img { max-width: 100%; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+    .navbar {
+      padding: 12px 0;
+      transition: var(--transition);
+      background: transparent !important;
+      z-index: 9999;
+    }
+    .navbar.scrolled {
+      background: rgba(255,255,255,0.98) !important;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      padding: 8px 0;
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .navbar .nav-link {
+      font-weight: 500;
+      color: #fff !important;
+      margin: 0 8px;
+      position: relative;
+      padding: 6px 0 !important;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .navbar.scrolled .nav-link { color: var(--dark) !important; }
+    .navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gradient-1);
+      transition: var(--transition);
+    }
+    .navbar .nav-link:hover::after,
+    .navbar .nav-link.active::after { width: 100%; }
+    .navbar .nav-link:hover { opacity: 0.85; }
+    .navbar-toggler { border: none; color: #fff !important; }
+    .navbar.scrolled .navbar-toggler { color: var(--dark) !important; }
+    .navbar-toggler:focus { box-shadow: none; }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--gradient-hero);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(108,92,231,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(0,206,201,0.1) 0%, transparent 50%);
+      animation: heroFloat 20s ease-in-out infinite;
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(1deg); }
+      66% { transform: translate(-20px, 20px) rotate(-1deg); }
+    }
+    .hero-particles {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      animation: particleFloat 15s infinite;
+    }
+    .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; width: 8px; height: 8px; }
+    .particle:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; }
+    .particle:nth-child(4) { top: 30%; left: 70%; animation-delay: 6s; width: 10px; height: 10px; }
+    .particle:nth-child(5) { top: 70%; left: 50%; animation-delay: 8s; }
+    .particle:nth-child(6) { top: 10%; left: 90%; animation-delay: 3s; width: 5px; height: 5px; }
+    .particle:nth-child(7) { top: 90%; left: 40%; animation-delay: 5s; }
+    .particle:nth-child(8) { top: 40%; left: 30%; animation-delay: 7s; width: 7px; height: 7px; }
+    @keyframes particleFloat {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-100px) scale(1.5); opacity: 0.8; }
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-photo-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .hero-photo {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.3);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+    .hero-photo:hover { transform: scale(1.03); border-color: var(--primary); }
+    .hero-photo-ring {
+      position: absolute;
+      top: -10px; left: -10px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255,255,255,0.2);
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .hero .subtitle {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .hero .tagline {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+    .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .hero-badge {
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-badge i { color: var(--accent); }
+    .section { padding: 100px 0; position: relative; }
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-title h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-title .line {
+      width: 60px; height: 4px;
+      background: var(--gradient-2);
+      border-radius: 2px;
+      margin: 0 auto 15px;
+    }
+    .section-title p { color: var(--gray); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+    .about-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      height: 100%;
+    }
+    .about-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .about-card h5 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .about-card .info-item {
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .about-card .info-item:last-child { border-bottom: none; }
+    .about-card .info-label {
+      font-weight: 600;
+      min-width: 100px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    .about-card .info-value { color: var(--dark); font-size: 0.9rem; }
+    .skills-section { background: #fff; }
+    .skill-item {
+      min-height: 95px;
+      margin-bottom: 25px;
+    }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .skill-header span {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .skill-header .percent { color: var(--primary); font-weight: 700; min-width: 38px; text-align: right; }
+    .progress {
+      height: 10px;
+      border-radius: 10px;
+      background: #e9ecef;
+      overflow: visible;
+    }
+    .progress-bar {
+      border-radius: 10px;
+      position: relative;
+      background: var(--gradient-1);
+      transition: width 1.5s ease;
+      box-shadow: 0 0 10px rgba(108,92,231,0.3);
+    }
+    .progress-bar::after {
+      content: attr(data-width) "%";
+      position: absolute;
+      right: -4px; top: -28px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(108,92,231,0.1);
+      padding: 2px 8px;
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .progress-bar:hover::after { opacity: 1; }
+    .skill-item:hover .progress-bar { filter: brightness(1.1); }
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px; top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+    }
+    .timeline-item {
+      position: relative;
+      padding: 25px 0;
+      padding-left: 20px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px; top: 30px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--gradient-1);
+      border: 3px solid #fff;
+      box-shadow: var(--shadow-sm);
+      z-index: 2;
+    }
+    .timeline-item .card {
+      border: none;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      background: #fff;
+    }
+    .timeline-item .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .timeline-item .card h5 { font-weight: 700; color: var(--primary); }
+    .timeline-item .card .date {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .timeline-item .card .badge-tag {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(108,92,231,0.1);
+      color: var(--primary);
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .gallery-section { background: var(--light); }
+    .gallery-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      cursor: pointer;
+      aspect-ratio: 4/3;
+    }
+    .gallery-card:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg);
+    }
+    .gallery-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .gallery-card:hover img { transform: scale(1.1); }
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 15px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+    .gallery-card:hover .gallery-overlay { transform: translateY(0); }
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox img {
+      max-width: 90%; max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .lightbox-close:hover { transform: rotate(90deg); }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 30px;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .contact-section {
+      background: var(--gradient-hero);
+      position: relative;
+    }
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 80% 20%, rgba(108,92,231,0.2) 0%, transparent 50%);
+    }
+    .contact-section .section-title h2 {
+      background: none;
+      -webkit-text-fill-color: #fff;
+      color: #fff;
+    }
+    .contact-section .section-title p { color: rgba(255,255,255,0.6); }
+    .contact-section .section-title .line { background: var(--accent); }
+    .contact-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition);
+      height: 100%;
+      color: #fff;
+    }
+    .contact-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-5px);
+    }
+    .contact-card i {
+      font-size: 2rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 15px;
+    }
+    .contact-card h6 { font-weight: 700; margin-bottom: 8px; }
+    .contact-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0; }
+    footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.6);
+      padding: 30px 0;
+      text-align: center;
+    }
+    footer .social-link {
+      display: inline-flex;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      margin: 0 5px;
+      transition: var(--transition);
+    }
+    footer .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      width: 45px; height: 45px;
+      border-radius: 50%;
+      background: var(--gradient-1);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-md);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); }
+    @media (max-width: 991px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero-photo { width: 160px; height: 160px; }
+      .hero-photo-ring { width: 180px; height: 180px; }
+      .section { padding: 70px 0; }
+    }
+    @media (max-width: 767px) {
+      .hero h1 { font-size: 2rem; }
+      .hero .subtitle { font-size: 1.1rem; }
+      .navbar .nav-link { color: var(--dark) !important; }
+      .navbar-collapse {
+        background: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+      }
+      .about-card { padding: 25px; }
+      .timeline { padding-left: 25px; }
+      .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+    }
+      /* ===== Dark Mode ===== */
+    [data-theme="dark"] {
+      --primary: #a29bfe;
+      --primary-dark: #6c5ce7;
+      --dark: #f8f9fa;
+      --light: #1a1a2e;
+      --gray: #b2bec3;
+      --gradient-hero: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.4);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    [data-theme="dark"] .navbar.scrolled { background: rgba(26,26,46,0.98) !important; }
+    [data-theme="dark"] .navbar.scrolled .nav-link { color: #f8f9fa !important; }
+    [data-theme="dark"] .about-card,
+    [data-theme="dark"] .card { background: #16213e; }
+    [data-theme="dark"] .text-muted { color: #b2bec3 !important; }
+    [data-theme="dark"] .gallery-section { background: #16213e; }
+    [data-theme="dark"] #evaluation { background: #1a1a2e !important; }
+    [data-theme="dark"] .section-title h2,
+    [data-theme="dark"] .info-value { color: #f8f9fa; }
+    [data-theme="dark"] .skill-item .progress { background: rgba(255,255,255,0.1); }
+    /* ===== Dark Mode Toggle ===== */
+    .theme-toggle {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; cursor: pointer;
+      transition: var(--transition); font-size: 1rem;
+      margin-left: 8px;
+    }
+    .navbar.scrolled .theme-toggle {
+      background: rgba(108,92,231,0.1);
+      color: var(--dark);
+      border-color: rgba(108,92,231,0.2);
+    }
+    .theme-toggle:hover { transform: rotate(30deg); }
+    /* ===== Hero Buttons ===== */
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+    .hero-btn {
+      padding: 10px 28px; border-radius: 50px; font-size: 0.9rem; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: var(--transition); text-decoration: none;
+    }
+    .hero-btn-primary {
+      background: var(--gradient-1); color: #fff;
+      box-shadow: 0 4px 15px rgba(108,92,231,0.4);
+    }
+    .hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108,92,231,0.5); color: #fff; }
+    .hero-btn-outline {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .hero-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff; }
+    /* ===== Stats Counter ===== */
+    .stats-section {
+      background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+      padding: 60px 0;
+    }
+    .stat-item { text-align: center; color: #fff; padding: 20px; }
+    .stat-number {
+      font-size: 2.8rem; font-weight: 800;
+      font-family: 'Inter', sans-serif; line-height: 1;
+      margin-bottom: 5px;
+    }
+    .stat-label { font-size: 0.95rem; opacity: 0.85; font-weight: 500; }
+    .stat-icon { font-size: 1.8rem; margin-bottom: 10px; opacity: 0.9; }
+    /* ===== Download Nav Link ===== */
+    .nav-download {
+      background: var(--gradient-1) !important;
+      border-radius: 50px !important;
+      padding: 6px 18px !important;
+      color: #fff !important;
+      margin-left: 5px !important;
+      -webkit-text-fill-color: #fff !important;
+    }
+    .nav-download:hover { opacity: 0.9; }
+    /* ===== Project Link ===== */
+    .project-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: var(--primary); font-size: 0.85rem; font-weight: 500;
+      margin-top: 10px; transition: var(--transition);
+    }
+    .project-link:hover { gap: 8px; color: var(--primary-dark); }
+    /* ===== Contact Clickable ===== */
+    .contact-card a { color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition); }
+    .contact-card a:hover { color: #fff; }
+    /* ===== Footer Extra ===== */
+    .footer-download { color: rgba(255,255,255,0.6); font-size: 0.85rem; display: inline-block; margin-bottom: 10px; transition: var(--transition); }
+    .footer-download:hover { color: var(--accent); }
+      /* ===== Tech Stack Icons ===== */
+    .tech-section { background: var(--light); }
+    .tech-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 600;
+      background: #fff; color: var(--dark);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      margin: 4px 6px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .tech-badge:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: var(--shadow-md);
+      background: var(--gradient-1);
+      color: #fff;
+    }
+    .tech-badge i { font-size: 1.1rem; width: 22px; text-align: center; display: inline-block; }
+    .tech-badge:hover i { color: #fff !important; }
+    /* ===== Interests ===== */
+    .interest-card {
+      text-align: center; padding: 30px 20px;
+      border-radius: 20px; background: #fff;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .interest-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    .interest-icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .interest-card h6 { font-weight: 700; margin-bottom: 6px; }
+    .interest-card p { font-size: 0.85rem; color: var(--gray); margin: 0; }
+    /* ===== Certificate Link ===== */
+    .cert-link {
+      position: absolute; top: 10px; right: 10px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary) !important; font-size: 0.8rem;
+      opacity: 0; transition: var(--transition);
+      z-index: 5; text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .gallery-card:hover .cert-link { opacity: 1; }
+    .cert-link:hover { background: var(--primary); color: #fff !important; transform: scale(1.1); }
+    /* ===== External Link Card (About section) ===== */
+    .external-link-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px; border-radius: 12px;
+      background: rgba(108,92,231,0.04);
+      transition: var(--transition);
+      margin-bottom: 8px;
+    }
+    .external-link-item:hover { background: rgba(108,92,231,0.1); transform: translateX(4px); }
+    .external-link-item a {
+      font-weight: 500; color: var(--primary);
+      text-decoration: none; flex: 1;
+    }
+    .external-link-item a:hover { color: var(--primary-dark); }
+    .external-link-item i:first-child {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--gradient-1); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+    /* ===== Dark mode override ===== */
+    [data-theme="dark"] .tech-badge { background: #16213e; color: #f8f9fa; border: 1px solid rgba(255,255,255,0.08); }
+    [data-theme="dark"] .interest-card { background: #16213e; }
+    [data-theme="dark"] .external-link-item { background: rgba(162,155,254,0.08); }
+    [data-theme="dark"] .external-link-item a { color: #a29bfe; }
+    /* ===== Certificate Detail Modal ===== */
+    .cert-modal {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center;
+      z-index: 10000;
+    }
+    .cert-modal.active { display: flex; }
+    .cert-modal-wide { max-width: 580px; }
+    .cert-modal-content .proj-tech { 
+      display: inline-block; padding: 3px 12px; border-radius: 50px;
+      background: rgba(108,92,231,0.1); color: var(--primary);
+      font-size: 0.8rem; font-weight: 600; margin: 3px 4px 3px 0;
+    }
+    .cert-modal-content .proj-section { margin-top: 12px; }
+    .cert-modal-content .proj-section h6 { 
+      font-weight: 700; font-size: 0.95rem; color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .cert-modal-content .proj-section p {
+      font-size: 0.9rem; line-height: 1.7; color: var(--gray);
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .cert-modal-content .proj-section h6 { color: #f8f9fa; }
+    [data-theme="dark"] .cert-modal-content .proj-tech { background: rgba(162,155,254,0.15); }
+    .cert-modal-content {
+      background: #fff; border-radius: 20px;
+      padding: 40px 35px; max-width: 480px; width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: modalSlideIn 0.3s ease;
+      position: relative;
+    }
+    @keyframes modalSlideIn {
+      from { transform: translateY(30px) scale(0.95); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .cert-modal-content h5 {
+      font-weight: 700; font-size: 1.3rem;
+      color: var(--primary); margin-bottom: 15px;
+      padding-right: 30px;
+    }
+    .cert-modal-content p {
+      font-size: 0.95rem; line-height: 1.8;
+      color: var(--gray); margin: 0;
+    }
+    .cert-modal-close {
+      position: absolute; top: 15px; right: 20px;
+      font-size: 1.8rem; color: var(--gray);
+      cursor: pointer; transition: var(--transition);
+      line-height: 1;
+    }
+    .cert-modal-close:hover { color: var(--primary); transform: rotate(90deg); }
+    [data-theme="dark"] .cert-modal-content { background: #16213e; }
+    [data-theme="dark"] .cert-modal-content p { color: #b2bec3; }
+    [data-theme="dark"] .cert-modal-close { color: #b2bec3; }
+    [data-theme="dark"] .cert-modal-close:hover { color: #a29bfe; }
+    /* ===== Gallery Card Enhanced ===== */
+    .gallery-card .cert-link { opacity: 1; top: 8px; right: 8px; width: 28px; height: 28px; font-size: 0.75rem; }
+    .gallery-card .gallery-overlay { padding: 10px 12px; font-size: 0.8rem; }
+    .gallery-card { cursor: pointer; }
+      /* ===== About Section Equal Height Columns ===== */
+    #about .row.g-4 { display: flex; align-items: stretch; }
+    #about .row.g-4 > [class*="col-"] { display: flex; flex-direction: column; }
+    #about .row.g-4 > [class*="col-"] > .about-card { flex: 1 1 auto; }
+    #about .about-card:last-child { margin-bottom: 0; }
+    #about .about-card .info-item:last-child { margin-bottom: 0; border-bottom: none; }
+    #about .about-card { padding: 28px; margin-bottom: 16px; border-radius: 16px; }
+    /* Adjust info-item layout for better density */
+    #about .info-item { padding: 5px 0; margin-bottom: 0; }
+    #about .info-label { min-width: 90px; display: inline-block; }
+    /* Personal links card - tighter */
+    #about .external-link-item { padding: 7px 12px; margin-bottom: 4px; }
+      /* ===== Equal Height Project Cards ===== */
+    #experience .timeline-item { display: flex; }
+    #experience .timeline-item .card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    #experience .timeline-item .card > p:last-of-type {
+      flex: 1;
+      margin-bottom: 10px;
+    }
+    #experience .project-link { margin-top: auto; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+            <a class="navbar-brand" href="#home"><i class="fas fa-chart-pie me-2"></i>徐莉婕</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">关于我</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">技能</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">项目</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certificates">证书</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">联系</a></li>
+          <li class="nav-item"><a class="nav-link nav-download" href="个人简历.pdf" download target="_blank"><i class="fas fa-download me-1"></i>简历</a></li>
+          <li class="nav-item d-flex align-items-center">
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换深色/浅色模式" aria-label="切换深色/浅色模式">
+              <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero" id="home">
+    <div class="hero-particles">
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="container hero-content text-center">
+      <div class="hero-photo-wrapper mb-4" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="hero-photo-ring"></div>
+        <img src="images/photo.jpg" alt="徐莉婕" class="hero-photo">
+      </div>
+      <h1 data-aos="fade-up" data-aos-delay="200">徐莉婕</h1>
+      <div class="subtitle" data-aos="fade-up" data-aos-delay="300">
+        <i class="fas fa-chart-line me-2"></i>数据分析师 · 数据科学与大数据技术
+      </div>
+      <div class="tagline" data-aos="fade-up" data-aos-delay="400">
+        昆明学院 · 2027届 · 中共党员
+      </div>
+      <div class="hero-badges" data-aos="fade-up" data-aos-delay="500">
+        <span class="hero-badge"><i class="fas fa-trophy"></i> 国家奖学金</span>
+        <span class="hero-badge"><i class="fas fa-medal"></i> 省级五好学生</span>
+        <span class="hero-badge"><i class="fas fa-flask"></i> 数学建模省二</span>
+        <span class="hero-badge"><i class="fas fa-language"></i> 英语六级</span>
+        <span class="hero-badge"><i class="fas fa-robot"></i> 创新创业省级立项</span>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+        <a href="个人简历.pdf" download class="hero-btn hero-btn-primary" target="_blank">
+          <i class="fas fa-download"></i> 下载简历
+        </a>
+        <a href="mailto:1523773919@QQ.com" class="hero-btn hero-btn-outline">
+          <i class="fas fa-envelope"></i> 联系我
+        </a>
+        <a href="#certificates" class="hero-btn hero-btn-outline">
+          <i class="fas fa-award"></i> 荣誉证书
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>关于我</h2>
+        <p>数据科学领域的学习者与实践者，怀揣对数据分析的热爱，持续探索技术的无限可能</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="about-card">
+            <h5><i class="fas fa-user me-2"></i>个人信息</h5>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-venus-mars me-2 text-primary"></i>性别</span>
+              <span class="info-value">女</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-calendar me-2 text-primary"></i>年龄</span>
+              <span class="info-value">21岁</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-phone me-2 text-primary"></i>电话</span>
+              <span class="info-value"><a href="tel:17787814386">17787814386</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-envelope me-2 text-primary"></i>邮箱</span>
+              <span class="info-value"><a href="mailto:1523773919@QQ.com" class="text-dark">1523773919@QQ.com</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-map-marker-alt me-2 text-primary"></i>现居</span>
+              <span class="info-value">云南 · 昆明</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-flag me-2 text-primary"></i>政治面貌</span>
+              <span class="info-value">中共党员</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-balance-scale me-2 text-primary"></i>民族</span>
+              <span class="info-value">汉</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label"><i class="fas fa-ruler-vertical me-2 text-primary"></i>身高/体重</span>
+              <span class="info-value">160cm / 48kg</span>
+            </div>
+          </div>
+          <div class="about-card mt-3">
+            <h5><i class="fas fa-link me-2"></i>个人链接</h5>
+            <div class="external-link-item">
+              <i class="fab fa-github"></i>
+              <a href="https://github.com/" target="_blank" rel="noopener">GitHub · 代码仓库</a>
+              <i class="fas fa-external-link-alt" style="font-size:0.7rem;color:var(--gray);"></i>
+            </div>
+            <div class="external-link-item">
+              <i class="fas fa-blog"></i>
+              <a href="https://blog.csdn.net/" target="_blank" rel="noopener">CSDN · 技术博客</a>
+              <i class="fas fa-external-link-alt" style="font-size:0.7rem;color:var(--gray);"></i>
+            </div>
+            <div class="external-link-item">
+              <i class="fab fa-zhihu"></i>
+              <a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎 · 知识分享</a>
+              <i class="fas fa-external-link-alt" style="font-size:0.7rem;color:var(--gray);"></i>
+            </div>
+            <div class="external-link-item">
+              <i class="fas fa-university"></i>
+              <a href="https://www.kmu.edu.cn/" target="_blank" rel="noopener">昆明学院 · 官网</a>
+              <i class="fas fa-external-link-alt" style="font-size:0.7rem;color:var(--gray);"></i>
+            </div>
+            <div class="external-link-item">
+              <i class="fas fa-file-pdf"></i>
+              <a href="个人简历.pdf" download target="_blank">个人简历 · PDF 下载</a>
+              <i class="fas fa-download" style="font-size:0.7rem;color:var(--gray);"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+            <div class="about-card">
+            <h5><i class="fas fa-graduation-cap me-2"></i>教育经历</h5>
+            <div class="d-flex align-items-center mb-3">
+              <div style="width:50px;height:50px;border-radius:8px;margin-right:15px;background:var(--gradient-1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">KM</div>
+              <div>
+                <h6 class="mb-1 fw-bold">昆明学院</h6>
+                <p class="mb-0 text-muted" style="font-size:0.9rem;">数据科学与大数据技术 · 普通本科</p>
+              </div>
+              <span class="ms-auto text-nowrap badge bg-light text-primary" style="font-size:0.85rem;">2023.09 - 2027.06</span>
+            </div>
+            <p class="text-muted" style="font-size:0.9rem;line-height:1.8;">
+              <strong class="text-dark">主修课程：</strong>高等数学、Python、Java、数据库原理及应用、数据结构、概率论与数理统计、C语言程序设计<br>
+              <strong class="text-dark">主要技能：</strong>掌握数据建模与算法实现能力，熟练运用Python数据分析工具库进行特征工程及模型训练，具备数据库设计与SQL应用实践经验<br>
+              <strong class="text-dark">核心优势：</strong>3项省级以上学科竞赛获奖、国家奖学金、优秀共青团干部，数学建模与机器学习算法应用能力<br>
+              <strong class="text-dark">实践成果：</strong>国家级竞赛算法优化方案获校级三等奖，创新创业项目获省级立项支持</p>
+          </div>
+          <div class="about-card mt-3">
+            <h5><i class="fas fa-star me-2" style="color:#fdcb6e;"></i>个人简介</h5>
+            <p class="text-muted" style="font-size:0.9rem;line-height:1.9;margin-bottom:6px;">
+              中共党员，昆明学院数据科学与大数据技术专业在读。国家奖学金获得者、省级五好学生，拥有扎实的数据分析与编程基础。
+            </p>
+            <p class="text-muted" style="font-size:0.9rem;line-height:1.9;margin-bottom:6px;">
+              熟练掌握 Python 数据分析生态（Pandas / NumPy / Scikit-learn），具备数据库设计与 SQL 应用实践经验，了解区块链智能合约开发。
+            </p>
+            <p class="text-muted" style="font-size:0.9rem;line-height:1.9;margin-bottom:0;">
+              <i class="fas fa-quote-left me-1" style="color:var(--primary);opacity:0.4;"></i>
+              用数据驱动决策，以技术创造价值。期待在数据分析领域持续深耕，将理论与实际业务紧密结合。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== Skills Section ===== -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>专业技能</h2>
+        <p>通过系统学习与项目实践，构建起扎实的技术能力体系</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-up">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fab fa-python me-2 text-primary"></i>Python数据分析</span>
+              <span class="percent">90%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fas fa-database me-2 text-primary"></i>SQL / 数据库</span>
+              <span class="percent">85%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fas fa-chart-bar me-2 text-primary"></i>数据可视化</span>
+              <span class="percent">85%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fas fa-cubes me-2 text-primary"></i>机器学习 / 建模</span>
+              <span class="percent">80%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="80"></div></div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fab fa-java me-2 text-primary"></i>Java</span>
+              <span class="percent">75%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fas fa-code me-2 text-primary"></i>C 语言</span>
+              <span class="percent">70%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="70"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fas fa-file-excel me-2 text-primary"></i>Office / 办公软件</span>
+              <span class="percent">90%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span><i class="fas fa-robot me-2 text-primary"></i>区块链 / 智能合约</span>
+              <span class="percent">70%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:0%;" data-width="70"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Tech Stack ===== -->
+  <section class="section tech-section" id="techstack" style="background:#f8f9ff;">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>技术栈</h2>
+        <p>熟练使用的工具与技术平台 — 鼠标悬停查看描述</p>
+      </div>
+      <div class="text-center" data-aos="fade-up">
+        <span class="tech-badge"><i class="fab fa-python" style="color:#3776AB;"></i> Python</span>
+        <span class="tech-badge"><i class="fab fa-java" style="color:#007396;"></i> Java</span>
+        <span class="tech-badge"><i class="fas fa-database" style="color:#336791;"></i> MySQL</span>
+        <span class="tech-badge"><i class="fas fa-chart-line" style="color:#E6A23C;"></i> Pandas / NumPy</span>
+        <span class="tech-badge"><i class="fas fa-brain" style="color:#6c5ce7;"></i> Scikit-learn</span>
+        <span class="tech-badge"><i class="fas fa-chart-bar" style="color:#F05032;"></i> Matplotlib / ECharts</span>
+        <span class="tech-badge"><i class="fab fa-git-alt" style="color:#F05032;"></i> Git</span>
+        <span class="tech-badge"><i class="fab fa-docker" style="color:#2496ED;"></i> Docker</span>
+        <span class="tech-badge"><i class="fab fa-linux" style="color:#FCC624;"></i> Linux</span>
+        <span class="tech-badge"><i class="fas fa-file-excel" style="color:#217346;"></i> Excel / WPS</span>
+        <span class="tech-badge"><i class="fas fa-table" style="color:#003B57;"></i> Tableau</span>
+        <span class="tech-badge"><i class="fas fa-link" style="color:#627EEA;"></i> Solidity</span>
+        <span class="tech-badge"><i class="fab fa-html5" style="color:#E34F26;"></i> HTML / CSS</span>
+        <span class="tech-badge"><i class="fab fa-js" style="color:#F7DF1E;"></i> JavaScript</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats Counter ===== -->
+  <section class="stats-section" id="stats">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="0">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
+            <div class="stat-label">项目经验</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+            <div class="stat-number"><span class="counter" data-target="12">0</span>+</div>
+            <div class="stat-label">竞赛获奖</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+            <div class="stat-number"><span class="counter" data-target="13">0</span></div>
+            <div class="stat-label">荣誉证书</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-cogs"></i></div>
+            <div class="stat-number"><span class="counter" data-target="8">0</span></div>
+            <div class="stat-label">专业技能</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Experience / Projects Section ===== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>项目经历</h2>
+        <p>在实践中成长，在创新中突破</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
+              <div class="card">
+                <span class="date"><i class="far fa-calendar-alt me-1"></i> 2025年</span>
+                <h5>「链核绿循」绿色回收管理系统</h5>
+                <p class="text-muted" style="font-size:0.9rem;">
+                  基于飞梭链内核的绿色回收管理系统 · <strong class="text-primary">省级立项支持</strong>
+                </p>
+                <p style="font-size:0.9rem;">主导开发智能合约与环保积分体系融合的系统，实现区块链技术在环保领域的创新应用。形成了区块链应用开发方法论，构建跨平台系统设计能力，获1项技术专利申报。</p>
+                <a href="javascript:void(0)" class="project-link" title="查看项目详情" onclick="event.preventDefault();showProjectDetail('「链核绿循」绿色回收管理系统', '区块链 · 智能合约 · Solidity · 环保积分 · Web3', '核心开发成员，主导智能合约开发与环保积分体系设计', '区块链技术在环保领域的应用在行业内尚处探索阶段，技术参考资料有限。需要从零搭建智能合约架构，并设计激励相容的积分经济模型。', '系统成功实现区块链技术于环保回收领域的创新应用，获1项技术专利申报，项目获省级大学生创新创业训练计划立项支持。', '区块链应用开发 · 智能合约设计 · 经济模型设计 · 跨平台系统架构 · 项目管理')"><i class="fab fa-github"></i> 查看项目 <i class="fas fa-arrow-right"></i></a>
+                <span class="badge-tag">区块链</span>
+                <span class="badge-tag">智能合约</span>
+                <span class="badge-tag">环保积分</span>
+                <span class="badge-tag">省级立项</span>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="card">
+                <span class="date"><i class="far fa-calendar-alt me-1"></i> 2023年</span>
+                <h5>「校淘淘」校园二手交易平台</h5>
+                <p class="text-muted" style="font-size:0.9rem;">
+                  大学生创新创业训练计划项目
+                </p>
+                <p style="font-size:0.9rem;">设计校园二手交易平台原型，集成LBS定位与智能推荐功能，完成核心模块开发并通过专家评审。</p>
+                <a href="javascript:void(0)" class="project-link" title="查看项目详情" onclick="event.preventDefault();showProjectDetail('「校淘淘」校园二手交易平台', 'LBS定位 · 智能推荐 · 原型设计 · 用户研究', '项目负责人，主导产品原型设计与核心功能规划', '校园二手交易存在信任缺失、信息不对称等痛点。需要在有限资源下平衡功能完整性与开发可行性，同时确保用户体验。', '完成校园二手交易平台原型设计，集成LBS定位与智能推荐功能，通过专家评审，获大学生创新创业训练计划立项。', '产品原型设计 · LBS技术应用 · 推荐算法 · 用户调研 · 需求分析')"><i class="fab fa-github"></i> 查看项目 <i class="fas fa-arrow-right"></i></a>
+                <span class="badge-tag">LBS定位</span>
+                <span class="badge-tag">智能推荐</span>
+                <span class="badge-tag">原型设计</span>
+                <span class="badge-tag">创新创业</span>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="card">
+                <span class="date"><i class="far fa-calendar-alt me-1"></i> 2024年</span>
+                <h5>返乡实践调研报告</h5>
+                <p class="text-muted" style="font-size:0.9rem;">
+                  南华县地区示范案例
+                </p>
+                <p style="font-size:0.9rem;">策划并完成返乡实践调研，调研报告被列为南华县地区示范案例，深入基层了解社会发展现状，将数据科学方法应用于社会调研。</p>
+                <a href="javascript:void(0)" class="project-link" title="查看报告详情" onclick="event.preventDefault();showProjectDetail('返乡实践调研报告', '社会调查 · 数据分析 · 问卷设计 · 实证研究', '调研负责人，统筹调研方案设计与数据分析工作', '基层调研面临数据采集难度大、样本代表性不足等实际问题。需要在有限时间内深入南华县多个乡村，确保调研数据的真实性与有效性。', '完成高质量调研报告，被列为南华县地区示范案例，为基层社会发展决策提供了有价值的数据参考。', '社会调研方法 · 问卷设计 · 数据采集与分析 · 报告撰写 · 沟通协调')"><i class="fas fa-file-alt"></i> 查看报告 <i class="fas fa-arrow-right"></i></a>
+                <span class="badge-tag">社会实践</span>
+                <span class="badge-tag">数据分析</span>
+                <span class="badge-tag">示范案例</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== Certificates Gallery ===== -->
+  <section class="section gallery-section" id="certificates">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>荣誉证书</h2>
+        <p>每一份荣誉都是成长的见证</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/国家奖学金.jpg" alt="国家奖学金">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('国家奖学金', '【颁发机构】中华人民共和国教育部 | 【获奖时间】2024年度 | 【背景】综合测评排名专业前1%，学业成绩与综合素质双优 | 【能力体现】扎实的专业基础、出色的学习能力与全面的综合素养 | 【意义】国家级荣誉，是对大学阶段全面发展的最高认可');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">国家奖学金</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/省级五好学生.jpg" alt="省级五好学生">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('省级五好学生', '【评选机构】云南省教育厅 | 【评选标准】德、智、体、美、劳五个方面综合评定 | 【个人表现】思想上追求进步（中共党员），学习上刻苦钻研（成绩优异），积极参与社会实践与志愿服务累计超100小时 | 【能力体现】全面发展的综合素质、强烈的社会责任感');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">省级五好学生</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/数学建模.jpg" alt="数学建模省级二等奖">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('数学建模省级二等奖', '【赛事】全国大学生数学建模竞赛（CUMCM） | 【等级】云南赛区二等奖 | 【赛题方向】基于实际问题的数学建模与算法设计 | 【个人贡献】负责数据预处理与模型构建，运用Python完成数据清洗、特征工程与结果验证 | 【核心能力】数学建模思维、Python数据分析、团队协作、问题抽象与量化分析 | 【收获】三天三夜高强度竞赛，极大提升了快速学习与抗压能力');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">数学建模省级二等奖</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/计算机设计大赛.jpg" alt="计算机设计大赛省级三等奖">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('计算机设计大赛省级三等奖', '【赛事】中国大学生计算机设计大赛 | 【等级】云南赛区三等奖 | 【作品主题】大数据可视化方向 | 【个人贡献】独立完成前端交互界面设计与后端数据处理逻辑，从前端框架搭建到可视化图表渲染全流程 | 【技术栈】HTML/CSS/JavaScript + ECharts + Python数据处理 | 【核心能力】全栈开发意识、数据可视化设计、用户体验思维');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">计算机设计大赛省级三等奖</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/创新创业大赛.jpg" alt="创新创业大赛">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('创新创业大赛', '【项目名称】「链核绿循」绿色回收管理系统 | 【立项级别】省级大学生创新创业训练计划 | 【技术方向】区块链 + 环保回收 | 【个人角色】核心开发，主导智能合约开发与环保积分体系设计 | 【成果】形成区块链应用开发方法论，获1项技术专利申报 | 【核心能力】区块链技术应用、智能合约开发(Solidity)、经济模型设计、跨学科创新思维');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">创新创业大赛</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/挑战杯.jpg" alt="挑战杯校赛三等奖">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('挑战杯 · 校赛三等奖', '"挑战杯"全国大学生课外学术科技作品竞赛校级三等奖。围绕社会热点问题"乡村振兴背景下的数字鸿沟现状"开展调查研究，运用问卷调查与数据分析方法进行实证分析，提出基于数字素养提升的解决方案。项目涵盖文献综述、问卷设计、数据采集与统计分析全流程，学术规范性强，获评校级三等奖。');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">挑战杯 · 校赛三等奖</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/优秀共青团干部.jpg" alt="优秀共青团干部">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('优秀共青团干部', '【授予单位】共青团昆明学院委员会 | 【评选年度】2024年度 | 【工作职责】组织校园文化活动与社会实践项目，统筹团队协作与活动策划 | 【主要成绩】成功组织多次校级文化活动，带领团队完成暑期社会实践项目 | 【核心能力】组织协调能力、团队管理、活动策划、沟通表达、责任担当');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">优秀共青团干部</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/六级.jpg" alt="英语六级证书">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('英语六级证书', '【考试】大学英语六级考试（CET-6） | 【能力等级】通过 | 【具体技能】听力：可理解学术讲座与英文报道 | 阅读：流畅阅读英文技术文档与学术论文 | 写作：撰写规范的学术英语短文 | 翻译：英汉互译能力胜任日常学术交流 | 【实际应用】查阅英文技术资料、阅读国际学术文献无障碍');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">英语六级证书</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/四级.jpg" alt="英语四级证书">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('英语四级证书', '【考试】大学英语四级考试（CET-4） | 【能力等级】通过 | 【具体技能】具备日常英语沟通能力，能进行基础英文阅读与写作 | 【基础作用】为六级和英语竞赛打下坚实的语言基础');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">英语四级证书</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="450">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/软考.jpg" alt="软件资格考试证书">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('软件资格考试证书', '【考试】全国计算机技术与软件专业技术资格（水平）考试（软考） | 【覆盖内容】计算机基础知识、数据结构与算法、操作系统、数据库原理、软件开发流程、系统分析与设计 | 【能力证明】具备扎实的计算机专业理论基础，系统掌握软件开发全生命周期知识体系 | 【职业价值】国家权威认证，是IT行业从业资格的重要证明');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">软件资格考试证书</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/打字比赛.jpg" alt="打字比赛">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('打字比赛', '【赛事】校园专业技能大赛打字比赛 | 【成绩】获奖 | 【能力指标】熟练掌握多种输入法（拼音/五笔），打字速度100+字/分钟，准确率99%+ | 【实际意义】高效的信息处理能力为日常学习与代码编写提供效率支撑 | 【核心能力】专注力、手眼协调、信息快速处理');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">打字比赛</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="550">
+          <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="images/英语竞赛.jpg" alt="英语竞赛">
+            <a href="javascript:void(0)" class="cert-link" onclick="event.stopPropagation();showCertDetail('英语竞赛', '【赛事】全国大学生英语竞赛（NECCS） | 【测试维度】听力、阅读、写作、翻译综合测试 | 【个人表现】各维度均表现优异，尤其阅读与写作部分突出 | 【能力体现】英语综合应用能力强，具备双语交流与跨文化沟通能力 | 【背景】在通过六级的基础上进一步提升英语实战能力');" title="查看证书详情"><i class="fas fa-search-plus"></i></a>
+            <div class="gallery-overlay">英语竞赛</div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Self Evaluation ===== -->
+  <section class="section" id="evaluation" style="background:#fff;">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>自我评价</h2>
+        <p>持续学习，勇于创新</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="about-card text-center h-100">
+            <div style="font-size:2.5rem;margin-bottom:15px;">📚</div>
+            <h5>专业学习</h5>
+            <p class="text-muted" style="font-size:0.9rem;">始终怀揣强烈求知欲，秉持刻苦钻研精神。系统掌握数据科学与大数据技术领域的理论知识，构建起扎实且完备的专业知识体系。</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="about-card text-center h-100">
+            <div style="font-size:2.5rem;margin-bottom:15px;">🤝</div>
+            <h5>实践能力</h5>
+            <p class="text-muted" style="font-size:0.9rem;">积极踊跃参加各种实践项目和实习计划，深度融入团队协作，深谙协作精髓，能高效协调资源，妥善解决各类复杂问题。</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="about-card text-center h-100">
+            <div style="font-size:2.5rem;margin-bottom:15px;">💡</div>
+            <h5>创新能力</h5>
+            <p class="text-muted" style="font-size:0.9rem;">时刻保持对行业前沿动态的高度关注，勇于突破传统思维局限，结合实际业务场景，不断探索大数据与人工智能等领域的应用创新。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ===== Interests ===== -->
+  <section class="section" id="interests" style="background:#fff;">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>兴趣爱好</h2>
+        <p>工作学习之外，保持对生活的热爱</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-4 col-md-2" data-aos="flip-up" data-aos-delay="0">
+          <div class="interest-card">
+            <div class="interest-icon">📖</div>
+            <h6>阅读</h6>
+            <p>技术书籍 & 文学</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2" data-aos="flip-up" data-aos-delay="100">
+          <div class="interest-card">
+            <div class="interest-icon">✍️</div>
+            <h6>写作</h6>
+            <p>技术博客分享</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2" data-aos="flip-up" data-aos-delay="200">
+          <div class="interest-card">
+            <div class="interest-icon">🎵</div>
+            <h6>音乐</h6>
+            <p>钢琴 & 轻音乐</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2" data-aos="flip-up" data-aos-delay="300">
+          <div class="interest-card">
+            <div class="interest-icon">🏸</div>
+            <h6>运动</h6>
+            <p>羽毛球 & 跑步</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2" data-aos="flip-up" data-aos-delay="400">
+          <div class="interest-card">
+            <div class="interest-icon">📸</div>
+            <h6>摄影</h6>
+            <p>记录生活瞬间</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2" data-aos="flip-up" data-aos-delay="500">
+          <div class="interest-card">
+            <div class="interest-icon">🧩</div>
+            <h6>桌游</h6>
+            <p>策略与协作</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Job Intention ===== -->
+  <section class="section" style="background:linear-gradient(135deg, #f8f9ff 0%, #fff 100%);padding:60px 0;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="about-card text-center" data-aos="fade-up">
+            <h5 class="mb-4"><i class="fas fa-bullseye me-2" style="color:var(--primary);"></i>求职意向</h5>
+            <div class="row g-3">
+              <div class="col-6 col-md-3">
+                <div class="p-3 rounded-3" style="background:rgba(108,92,231,0.05);">
+                  <div class="fw-bold text-primary">数据分析师</div>
+                  <small class="text-muted">意向岗位</small>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="p-3 rounded-3" style="background:rgba(108,92,231,0.05);">
+                  <div class="fw-bold text-primary">4k-5k</div>
+                  <small class="text-muted">期望薪资</small>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="p-3 rounded-3" style="background:rgba(108,92,231,0.05);">
+                  <div class="fw-bold text-primary">昆明</div>
+                  <small class="text-muted">意向城市</small>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="p-3 rounded-3" style="background:rgba(108,92,231,0.05);">
+                  <div class="fw-bold text-primary">实习</div>
+                  <small class="text-muted">求职类型</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact Section ===== -->
+  <section class="section contact-section" id="contact">
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="section-title" data-aos="fade-up">
+        <div class="line"></div>
+        <h2>联系方式</h2>
+        <p>期待与您的沟通与合作</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <h6>电话</h6>
+            <p><a href="tel:17787814386">17787814386</a></p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h6>邮箱</h6>
+            <p><a href="mailto:1523773919@QQ.com">1523773919@QQ.com</a></p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h6>地址</h6>
+            <p>云南省 · 昆明市</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+    <footer>
+    <div class="container">
+      <div class="mb-2">
+        <a href="https://github.com/" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:1523773919@QQ.com" class="social-link" title="发送邮件"><i class="fas fa-envelope"></i></a>
+        <a href="https://space.bilibili.com/" target="_blank" class="social-link" title="B站"><i class="fab fa-bilibili"></i></a>
+        <a href="https://weibo.com/" target="_blank" class="social-link" title="微博"><i class="fab fa-weibo"></i></a>
+        <a href="tel:17787814386" class="social-link" title="拨打电话"><i class="fas fa-phone-alt"></i></a>
+        <a href="个人简历.pdf" download class="social-link" title="下载简历"><i class="fas fa-download"></i></a>
+      </div>
+      <div class="mb-2">
+        <a href="个人简历.pdf" download class="footer-download" target="_blank"><i class="fas fa-file-pdf me-1"></i> 下载 PDF 简历</a>
+      </div>
+      <p class="mb-0" style="font-size:0.85rem;">
+        &copy; 2026 徐莉婕 · 个人简历 &nbsp;|&nbsp; Built with <i class="fas fa-heart" style="color:#fd79a8;"></i> &amp; Bootstrap 5
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== Project Detail Modal ===== -->
+  <div class="cert-modal" id="projModal" onclick="closeProjModal()">
+    <div class="cert-modal-content cert-modal-wide" onclick="event.stopPropagation()">
+      <span class="cert-modal-close" onclick="closeProjModal()">&times;</span>
+      <h5 id="projModalTitle"></h5>
+      <div id="projModalBody"></div>
+    </div>
+  </div>
+  <!-- ===== Certificate Detail Modal ===== -->
+  <div class="cert-modal" id="certModal" onclick="closeCertModal()">
+    <div class="cert-modal-content" onclick="event.stopPropagation()">
+      <span class="cert-modal-close" onclick="closeCertModal()">&times;</span>
+      <h5 id="certModalTitle"></h5>
+      <p id="certModalDesc"></p>
+    </div>
+  </div>
+
+  <!-- ===== Lightbox ===== -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <!-- ===== Back to Top ===== -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- ===== Scripts ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 100 });
+
+    const nav = document.getElementById('mainNav');
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('scrolled', scrollY > 100);
+      backBtn.classList.toggle('show', scrollY > 500);
+      document.querySelectorAll('.navbar .nav-link').forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          link.classList.toggle('active', rect.top <= 200 && rect.bottom >= 200);
+        }
+      });
+    });
+
+    // Animate progress bars
+    const animateBars = () => {
+      document.querySelectorAll('.progress-bar').forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight && !bar.dataset.animated) {
+          bar.dataset.animated = 'true';
+          const w = bar.dataset.width || bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = w + '%'; }, 200);
+        }
+      });
+    };
+    window.addEventListener('scroll', animateBars);
+    window.addEventListener('load', animateBars);
+
+    // Lightbox
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      const overlay = el.querySelector('.gallery-overlay');
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-caption').textContent = overlay ? overlay.textContent : '';
+      lb.style.display = 'flex';
+      setTimeout(() => lb.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('active');
+      setTimeout(() => { lb.style.display = 'none'; }, 300);
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    
+    // Dark Mode Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      const current = html.getAttribute('data-theme');
+      if (current === 'dark') {
+        html.removeAttribute('data-theme');
+        icon.className = 'fas fa-moon';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        icon.className = 'fas fa-sun';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    // Restore theme on load
+    (function initTheme() {
+      const saved = localStorage.getItem('theme');
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      if (saved === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+        if (icon) icon.className = 'fas fa-sun';
+      }
+    })();
+
+    // Animated Counter
+    function animateCounters() {
+      document.querySelectorAll('.counter').forEach(counter => {
+        const rect = counter.getBoundingClientRect();
+        if (rect.top < window.innerHeight && !counter.dataset.animated) {
+          counter.dataset.animated = 'true';
+          const target = parseInt(counter.dataset.target);
+          let current = 0;
+          const step = Math.ceil(target / 40);
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(timer); }
+            counter.textContent = current;
+          }, 30);
+        }
+      });
+    }
+    window.addEventListener('scroll', animateCounters);
+    window.addEventListener('load', animateCounters);
+
+    // Certificate Detail Modal
+    function showCertDetail(title, desc) {
+      document.getElementById('certModalTitle').textContent = '🏆 ' + title;
+      document.getElementById('certModalDesc').textContent = desc;
+      const modal = document.getElementById('certModal');
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+    function showProjectDetail(title, tech, role, challenge, result, skill) {
+      document.getElementById('projModalTitle').innerHTML = '🚀 ' + title;
+      document.getElementById('projModalBody').innerHTML = 
+        '<div class="proj-section"><h6><i class="fas fa-cogs me-1" style="color:var(--primary);"></i> 技术栈</h6><p>' +
+        tech.split(' · ').map(t => '<span class="proj-tech">' + t.trim() + '</span>').join('') + '</p></div>' +
+        '<div class="proj-section"><h6><i class="fas fa-user me-1" style="color:var(--primary);"></i> 我的角色</h6><p>' + role + '</p></div>' +
+        '<div class="proj-section"><h6><i class="fas fa-exclamation-triangle me-1" style="color:#fdcb6e;"></i> 挑战与难点</h6><p>' + challenge + '</p></div>' +
+        '<div class="proj-section"><h6><i class="fas fa-trophy me-1" style="color:#fdcb6e;"></i> 成果</h6><p>' + result + '</p></div>' +
+        '<div class="proj-section"><h6><i class="fas fa-star me-1" style="color:#6c5ce7;"></i> 核心能力</h6><p>' + skill + '</p></div>';
+      const modal = document.getElementById('projModal');
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+    function closeProjModal() {
+      const modal = document.getElementById('projModal');
+      modal.classList.remove('active');
+      setTimeout(() => { modal.style.display = 'none'; }, 200);
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeCertModal(); closeProjModal(); }
+    });
+    function closeCertModal() {
+      const modal = document.getElementById('certModal');
+      modal.classList.remove('active');
+      setTimeout(() => { modal.style.display = 'none'; }, 200);
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCertModal(); });
+    console.log('✅ 个人简历已加载完成 - 徐莉婕');
+  </script>
+</body>
+</html>
+
+
+
+
